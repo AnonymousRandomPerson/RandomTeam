@@ -1,1 +1,4 @@
-
+.DS_Store
+Base.lproj/*
+en.lproj/*
+Images.xcassets/*
