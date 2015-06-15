@@ -19,6 +19,20 @@
     IBOutlet UIImageView *pokémon4;
     IBOutlet UIImageView *pokémon5;
     IBOutlet UIImageView *pokémon6;
+    
+    NSArray *pokemon;
+    NSArray *ubers;
+    NSInteger randomChallenge;
+    NSInteger random1;
+    NSInteger random2;
+    NSInteger random3;
+    NSInteger random4;
+    NSInteger random5;
+    NSInteger random6;
+    NSInteger randomPartner;
+    NSInteger pokémonNumber;
+    NSInteger pokémonNumberBB;
+    NSInteger partnerNumber;
 }
 
 @property(nonatomic, retain)UILabel *challenge;

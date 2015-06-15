@@ -12,24 +12,17 @@
 
 @end
 
-NSInteger randomChallenge;
-NSInteger random1;
-NSInteger random2;
-NSInteger random3;
-NSInteger random4;
-NSInteger random5;
-NSInteger random6;
-NSInteger randomPartner;
-const NSInteger pokémonNumber = 63;
-const NSInteger pokémonNumberBB = 11;
-const NSInteger partnerNumber = 4;
-
 @implementation Random_TeamViewController
 
 @synthesize challenge, maison, battleBox, pokémon1, pokémon2, pokémon3, pokémon4, pokémon5, pokémon6;
 
 - (void)viewDidLoad
 {
+    pokemon = [NSArray arrayWithObjects:@"Absol", @"Aegislash", @"Aerodactyl", @"Aggron", @"Alakazam", @"Archeops", @"Azumarill", @"Bisharp", @"Blaziken", @"Breloom", @"Chandelure", @"Charizard X", @"Charizard Y", @"Cinccino", @"Clawitzer", @"Clefable", @"Crawdaunt", @"Delphox", @"Dragonite", @"Drifblim", @"Excadrill", @"Exploud", @"Flygon", @"Gallade", @"Galvantula", @"Garchomp", @"Gengar", @"Greninja", @"Gyarados", @"Haxorus", @"Heracross", @"Houndoom", @"Krookodile", @"Lanturn", @"Lapras", @"Latias", @"Latios", @"Lucario", @"Magnezone", @"Manectric", @"Mienshao", @"Moltres", @"Nidoking", @"Nidoqueen", @"Noivern", @"Rampardos", @"Rapidash", @"Rhyperior", @"Roserade", @"Salamence", @"Samurott", @"Sceptile", @"Scolipede", @"Serperior", @"Sharpedo", @"Sigilyph", @"Starmie", @"Swampert", @"Swellow", @"Talonflame", @"Togekiss", @"Torterra", @"Typhlosion", @"Tyranitar", @"Tyrantrum", @"Vaporeon", @"Venusaur", @"Yanmega", @"Zapdos", @"Zoroark", nil];
+    ubers = [NSArray arrayWithObjects:@"Celebi", @"Deoxys", @"Dialga", @"Diancie", @"Giratina", @"Ho-Oh", @"Keldeo", @"Meloetta", @"Mewtwo", @"Palkia", @"Rayquaza", nil];
+    
+    pokémonNumber = pokemon.count;
+    pokémonNumberBB = ubers.count;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -128,159 +121,16 @@ const NSInteger partnerNumber = 4;
     pokémon6.image = [UIImage imageNamed:[self randomPokémon:random6]];
 }
 
--(NSString*)randomPokémon:(int)random
+-(NSString*)randomPokémon:(NSInteger)random
 {
     NSString *randomP = @"blank";
-    switch (random) {
-        case 0: randomP = @"Delphox";
-            break;
-        case 1: randomP = @"Roserade";
-            break;
-        case 2: randomP = @"Mienshao";
-            break;
-        case 3: randomP = @"Aerodactyl";
-            break;
-        case 4: randomP = @"Tyrantrum";
-            break;
-        case 5: randomP = @"Sharpedo";
-            break;
-        case 6: randomP = @"Lapras";
-            break;
-        case 7: randomP = @"Swellow";
-            break;
-        case 8: randomP = @"Scolipede";
-            break;
-        case 9: randomP = @"Blaziken";
-            break;
-        case 10: randomP = @"Talonflame";
-            break;
-        case 11: randomP = @"Greninja";
-            break;
-        case 12: randomP = @"Noivern";
-            break;
-        case 13: randomP = @"Houndoom";
-            break;
-        case 14: randomP = @"Heracross";
-            break;
-        case 15: randomP = @"Aggron";
-            break;
-        case 16: randomP = @"Torterra";
-            break;
-        case 17: randomP = @"Azumarill";
-            break;
-        case 18: randomP = @"Rampardos";
-            break;
-        case 19: randomP = @"Drifblim";
-            break;
-        case 20: randomP = @"Rapidash";
-            break;
-        case 21: randomP = @"Lucario";
-            break;
-        case 22: randomP = @"Togekiss";
-            break;
-        case 23: randomP = @"Gengar";
-            break;
-        case 24: randomP = @"Vaporeon";
-            break;
-        case 25: randomP = @"Gallade";
-            break;
-        case 26: randomP = @"Rhyperior";
-            break;
-        case 27: randomP = @"Nidoking";
-            break;
-        case 28: randomP = @"Typhlosion";
-            break;
-        case 29: randomP = @"Dragonite";
-            break;
-        case 30: randomP = @"Tyranitar";
-            break;
-        case 31: randomP = @"Lanturn";
-            break;
-        case 32: randomP = @"Sceptile";
-            break;
-        case 33: randomP = @"Venusaur";
-            break;
-        case 34: randomP = @"Salamence";
-            break;
-        case 35: randomP = @"Moltres";
-            break;
-        case 36: randomP = @"Zapdos";
-            break;
-        case 37: randomP = @"Serperior";
-            break;
-        case 38: randomP = @"Haxorus";
-            break;
-        case 39: randomP = @"Excadrill";
-            break;
-        case 40: randomP = @"Chandelure";
-            break;
-        case 41: randomP = @"Archeops";
-            break;
-        case 42: randomP = @"Samurott";
-            break;
-        case 43: randomP = @"Sigilyph";
-            break;
-        case 44: randomP = @"Krookodile";
-            break;
-        case 45: randomP = @"Starmie";
-            break;
-        case 46: randomP = @"Zoroark";
-            break;
-        case 47: randomP = @"Galvantula";
-            break;
-        case 48: randomP = @"Clefable";
-            break;
-        case 49: randomP = @"Charizard Y";
-            break;
-        case 50: randomP = @"Breloom";
-            break;
-        case 51: randomP = @"Garchomp";
-            break;
-        case 52: randomP = @"Manectric";
-            break;
-        case 53: randomP = @"Aegislash";
-            break;
-        case 54: randomP = @"Latios";
-            break;
-        case 55: randomP = @"Latias";
-            break;
-        case 56: randomP = @"Swampert";
-            break;
-        case 57: randomP = @"Exploud";
-            break;
-        case 58: randomP = @"Alakazam";
-            break;
-        case 59: randomP = @"Magnezone";
-            break;
-        case 60: randomP = @"Flygon";
-            break;
-        case 61: randomP = @"Absol";
-            break;
-        case 62: randomP = @"Charizard X";
-            break;
-        case -1: randomP = @"Keldeo";
-            break;
-        case -2: randomP = @"Meloetta";
-            break;
-        case -3: randomP = @"Palkia";
-            break;
-        case -4: randomP = @"Dialga";
-            break;
-        case -5: randomP = @"Giratina";
-            break;
-        case -6: randomP = @"Deoxys";
-            break;
-        case -7: randomP = @"Celebi";
-            break;
-        case -8: randomP = @"Mewtwo";
-            break;
-        case -9: randomP = @"Diancie";
-            break;
-        case -10: randomP = @"Rayquaza";
-            break;
-        case -11: randomP = @"Ho-Oh";
-            break;
-        default: randomP = @"blank";
+    if (randomP >= 0)
+    {
+        randomP = [pokemon objectAtIndex:random];
+    }
+    else
+    {
+        randomP = [ubers objectAtIndex:random * -1];
     }
     randomP = [randomP stringByAppendingString:@".png"];
     return randomP;
