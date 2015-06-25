@@ -14,23 +14,22 @@
 
 @implementation Random_TeamViewController
 
-@synthesize challenge, maison, battleBox, pokémon1, pokémon2, pokémon3, pokémon4, pokémon5, pokémon6;
+@synthesize challenge, maison, battleBox, pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6;
 
 - (void)viewDidLoad
 {
     pokemon = [NSArray arrayWithObjects:@"Absol", @"Aegislash", @"Aerodactyl", @"Aggron", @"Alakazam", @"Archeops", @"Azumarill", @"Bisharp", @"Blaziken", @"Breloom", @"Chandelure", @"Charizard X", @"Charizard Y", @"Cinccino", @"Clawitzer", @"Clefable", @"Crawdaunt", @"Delphox", @"Dragonite", @"Drifblim", @"Excadrill", @"Exploud", @"Flygon", @"Gallade", @"Galvantula", @"Garchomp", @"Gengar", @"Greninja", @"Gyarados", @"Haxorus", @"Heracross", @"Houndoom", @"Krookodile", @"Lanturn", @"Lapras", @"Latias", @"Latios", @"Lucario", @"Magnezone", @"Manectric", @"Mienshao", @"Moltres", @"Nidoking", @"Nidoqueen", @"Noivern", @"Rampardos", @"Rapidash", @"Rhyperior", @"Roserade", @"Salamence", @"Samurott", @"Sceptile", @"Scolipede", @"Serperior", @"Sharpedo", @"Sigilyph", @"Starmie", @"Swampert", @"Swellow", @"Talonflame", @"Togekiss", @"Torterra", @"Typhlosion", @"Tyranitar", @"Tyrantrum", @"Vaporeon", @"Venusaur", @"Yanmega", @"Zapdos", @"Zoroark", nil];
     ubers = [NSArray arrayWithObjects:@"Celebi", @"Deoxys", @"Dialga", @"Diancie", @"Giratina", @"Ho-Oh", @"Keldeo", @"Meloetta", @"Mewtwo", @"Palkia", @"Rayquaza", nil];
     
-    pokémonNumber = pokemon.count;
-    pokémonNumberBB = ubers.count;
+    pokemonNumber = pokemon.count;
+    pokemonNumberBB = ubers.count;
+    partnerNumber = 4;
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(IBAction)maison:(id)sender
@@ -51,77 +50,90 @@
         default: challenge.text = @"Single";
             break;
     }
-    random1 = arc4random()%pokémonNumber;
-    pokémon1.image = [UIImage imageNamed:[self randomPokémon:random1]];
-    random2 = arc4random()%pokémonNumber;
-    while (random2 == random1)
-        random2 = arc4random()%pokémonNumber;
-    pokémon2.image = [UIImage imageNamed:[self randomPokémon:random2]];
+    random1 = arc4random()%pokemonNumber;
+    pokemon1.image = [UIImage imageNamed:[self randomPokemon:random1]];
+    do
+    {
+        random2 = arc4random()%pokemonNumber;
+    } while (random2 == random1);
+    pokemon2.image = [UIImage imageNamed:[self randomPokemon:random2]];
     if (randomChallenge < 4)
     {
-        random3 = arc4random()%pokémonNumber;
-        while (random3 == random1 || random3 == random2)
-            random3 = arc4random()%pokémonNumber;
-            pokémon3.image = [UIImage imageNamed:[self randomPokémon:random3]];
+        do
+        {
+            random3 = arc4random()%pokemonNumber;
+        } while (random3 == random1 || random3 == random2);
+        pokemon3.image = [UIImage imageNamed:[self randomPokemon:random3]];
     }
     else
-        pokémon3.image = [UIImage imageNamed:@"blank.png"];
+    {
+        pokemon3.image = [UIImage imageNamed:@"blank.png"];
+    }
     if (randomChallenge < 3)
     {
-        random4 = arc4random()%pokémonNumber;
-        while (random4 == random1 || random4 == random2 || random4 == random3)
-            random4 = arc4random()%pokémonNumber;
-        pokémon4.image = [UIImage imageNamed:[self randomPokémon:random4]];
+        do
+        {
+            random4 = arc4random()%pokemonNumber;
+        } while (random4 == random1 || random4 == random2 || random4 == random3);
+        pokemon4.image = [UIImage imageNamed:[self randomPokemon:random4]];
     }
     else
-        pokémon4.image = [UIImage imageNamed:@"blank.png"];
+    {
+        pokemon4.image = [UIImage imageNamed:@"blank.png"];
+    }
     if (randomChallenge == 0)
     {
-        random5 = arc4random()%pokémonNumber;
-        while (random5 == random1 || random5 == random2 || random5 == random3 || random5 == random4)
-            random5 = arc4random()%pokémonNumber;
-        pokémon5.image = [UIImage imageNamed:[self randomPokémon:random5]];
-        random6 = arc4random()%pokémonNumber;
-        while (random6 == random1 || random6 == random2 || random6 == random3 || random6 == random4 || random6 == random5)
-            random6 = arc4random()%pokémonNumber;
-        pokémon6.image = [UIImage imageNamed:[self randomPokémon:random6]];
+        do
+        {
+            random5 = arc4random()%pokemonNumber;
+        } while (random5 == random1 || random5 == random2 || random5 == random3 || random5 == random4);
+        pokemon5.image = [UIImage imageNamed:[self randomPokemon:random5]];
+        do
+        {
+             random6 = arc4random()%pokemonNumber;
+        } while (random6 == random1 || random6 == random2 || random6 == random3 || random6 == random4 || random6 == random5);
+        pokemon6.image = [UIImage imageNamed:[self randomPokemon:random6]];
     }
     else
     {
-        pokémon5.image = [UIImage imageNamed:@"blank.png"];
-        pokémon6.image = [UIImage imageNamed:@"blank.png"];
+        pokemon5.image = [UIImage imageNamed:@"blank.png"];
+        pokemon6.image = [UIImage imageNamed:@"blank.png"];
     }
 }
 
 -(IBAction)battleBox:(id)sender
 {
-    NSInteger totalNumber = pokémonNumber + pokémonNumberBB;
+    NSInteger totalNumber = pokemonNumber + pokemonNumberBB;
     challenge.text = @"Battle Box";
-    random1 = arc4random()%totalNumber-pokémonNumberBB;
-    pokémon1.image = [UIImage imageNamed:[self randomPokémon:random1]];
-    random2 = arc4random()%totalNumber-pokémonNumberBB;
-    while (random2 == random1)
-        random2 = arc4random()%totalNumber-pokémonNumberBB;
-    pokémon2.image = [UIImage imageNamed:[self randomPokémon:random2]];
-    random3 = arc4random()%totalNumber-pokémonNumberBB;
-    while (random3 == random1 || random3 == random2)
-        random3 = arc4random()%totalNumber-pokémonNumberBB;
-    pokémon3.image = [UIImage imageNamed:[self randomPokémon:random3]];
-    random4 = arc4random()%totalNumber-pokémonNumberBB;
-    while (random4 == random1 || random4 == random2 || random4 == random3)
-        random4 = arc4random()%totalNumber-pokémonNumberBB;
-    pokémon4.image = [UIImage imageNamed:[self randomPokémon:random4]];
-    random5 = arc4random()%totalNumber-pokémonNumberBB;
-    while (random5 == random1 || random5 == random2 || random5 == random3 || random5 == random4)
-        random5 = arc4random()%totalNumber-pokémonNumberBB;
-    pokémon5.image = [UIImage imageNamed:[self randomPokémon:random5]];
-    random6 = arc4random()%totalNumber-pokémonNumberBB;
-    while (random6 == random1 || random6 == random2 || random6 == random3 || random6 == random4 || random6 == random5)
-        random6 = arc4random()%totalNumber-pokémonNumberBB;
-    pokémon6.image = [UIImage imageNamed:[self randomPokémon:random6]];
+    random1 = arc4random()%totalNumber-pokemonNumberBB;
+    pokemon1.image = [UIImage imageNamed:[self randomPokemon:random1]];
+    do
+    {
+        random2 = arc4random()%totalNumber-pokemonNumberBB;
+    } while (random2 == random1);
+    pokemon2.image = [UIImage imageNamed:[self randomPokemon:random2]];
+    do
+    {
+        random3 = arc4random()%totalNumber-pokemonNumberBB;
+    } while (random3 == random1 || random3 == random2);
+    pokemon3.image = [UIImage imageNamed:[self randomPokemon:random3]];
+    do
+    {
+        random4 = arc4random()%totalNumber-pokemonNumberBB;
+    } while (random4 == random1 || random4 == random2 || random4 == random3);
+    pokemon4.image = [UIImage imageNamed:[self randomPokemon:random4]];
+    do
+    {
+        random5 = arc4random()%totalNumber-pokemonNumberBB;
+    } while (random5 == random1 || random5 == random2 || random5 == random3 || random5 == random4);
+    pokemon5.image = [UIImage imageNamed:[self randomPokemon:random5]];
+    do {
+        random6 = arc4random()%totalNumber-pokemonNumberBB;
+    } while (random6 == random1 || random6 == random2 || random6 == random3 || random6 == random4 || random6 == random5);
+    pokemon6.image = [UIImage imageNamed:[self randomPokemon:random6]];
 }
 
--(NSString*)randomPokémon:(NSInteger)random
+-(NSString*)randomPokemon:(NSInteger)random
 {
     NSString *randomP = @"blank";
     if (randomP >= 0)
