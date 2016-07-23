@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     pokemon = @[@"Absol", @"Aegislash", @"Aerodactyl", @"Aggron", @"Alakazam", @"Archeops", @"Azumarill", @"Bisharp", @"Blaziken", @"Breloom", @"Chandelure", @"Charizard X", @"Charizard Y", @"Cinccino", @"Clawitzer", @"Clefable", @"Crawdaunt", @"Delphox", @"Dragonite", @"Drifblim", @"Excadrill", @"Exploud", @"Flygon", @"Gallade", @"Galvantula", @"Garchomp", @"Gengar", @"Greninja", @"Gyarados", @"Haxorus", @"Heracross", @"Houndoom", @"Krookodile", @"Lanturn", @"Lapras", @"Latias", @"Latios", @"Lucario", @"Magnezone", @"Manectric", @"Mienshao", @"Moltres", @"Nidoking", @"Nidoqueen", @"Noivern", @"Rampardos", @"Rapidash", @"Rhyperior", @"Roserade", @"Salamence", @"Samurott", @"Sceptile", @"Scolipede", @"Serperior", @"Sharpedo", @"Sigilyph", @"Starmie", @"Swampert", @"Swellow", @"Talonflame", @"Togekiss", @"Torterra", @"Typhlosion", @"Tyranitar", @"Tyrantrum", @"Vaporeon", @"Venusaur", @"Yanmega", @"Zapdos", @"Zoroark"];
-    ubers = @[@"Celebi", @"Darkrai", @"Deoxys", @"Dialga", @"Diancie", @"Giratina", @"Ho-Oh", @"Keldeo", @"Mew", @"Meloetta", @"Mewtwo", @"Palkia", @"Rayquaza", @"Zygarde"];
+    ubers = @[@"Celebi", @"Darkrai", @"Deoxys", @"Dialga", @"Diancie", @"Giratina", @"Ho-Oh", @"Keldeo", @"Manaphy", @"Mew", @"Meloetta", @"Mewtwo", @"Palkia", @"Rayquaza", @"Shaymin-Sky", @"Xerneas", @"Yveltal", @"Zygarde"];
     
     pokemonNumber = pokemon.count;
     pokemonNumberBB = ubers.count;
